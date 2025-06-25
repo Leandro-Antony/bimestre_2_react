@@ -1,0 +1,31 @@
+.card {
+  max-width: 30rem;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: var(--color-blue-dark);
+  box-shadow: 10px 10px 10px var(--color-primary-dark);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image {
+  width: 30rem;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.txt {
+  font-size: 1.5rem;
+  align-self: flex-start;
+  text-align: justify;
+}
