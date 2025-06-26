@@ -3,19 +3,17 @@ import styles from "./LuckyNumber.module.css";
 
 export default function LuckyNumber() {
   const [luckynumber, setLuckyNumber] = useState(0); //useState pede o valor inicial da variável
-
-  let numbers = [];
-
+  const [array, setArray] = useState([]); // Estado para armazenar o array de números sorteados
+  
   function handleClick() {
-    setLuckyNumber(Math.floor(Math.random() * 40) + 1); // Incrementa o número da sorte
-    numbers.push(luckynumber);  //joga o setluckynumber no push
-    console.log(numbers);
-    if (numbers.map((num) => num === luckynumber)) {
-        document.getElementById("numbers").innerHTML = "Número já sorteado: " + luckynumber;
-    } else {
-        document.getElementById("numbers").innerHTML = numbers;
-    }
+    const newNumber = Math.floor(Math.random() * 40) + 1;
 
+    if (array.includes(newNumber)) {
+      alert(`Número ${newNumber} já sorteado, tente novamente!`); // Verifica se o número já foi sorteado      
+    } else {
+      setLuckyNumber(newNumber)
+      setArray([...array, newNumber]); // Adiciona o número sorteado ao array
+    }
   }
 
   return (
@@ -28,7 +26,10 @@ export default function LuckyNumber() {
       <button className={styles.button} onClick={handleClick}>
         Acho que estou com sorte hoje
       </button>
-      <h1 id="numbers"></h1>
+
+      <h3 className={styles.sorted}>Números sorteados:</h3>
+      <p>[{array.toString()}]</p>
+
     </div>
   );
 }
