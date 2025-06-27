@@ -27,8 +27,8 @@ export default function LuckyNumber() {
         Acho que estou com sorte hoje
       </button>
 
-      <h3 className={styles.sorted}>Números sorteados:</h3>
-      <p>[{array.toString()}]</p>
+      <h3>Números sorteados:</h3>
+      <p className={styles.sorted}>{array.join(", ")}</p>
 
     </div>
   );
