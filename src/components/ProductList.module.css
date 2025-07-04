@@ -3,5 +3,21 @@
     flex-direction: column;
     align-items: center;
     margin-top: 1rem;
-    background-color: var(--color-primary);
+    background-color: var(--color-blue-deep);
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color-blue-dark);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 0.5rem;
+    width: 300px;
+    box-shadow: 5px 5px 4px var(--color-primary-dark);
+    transition: .3s ease-in-out;
+    &:hover {
+        box-shadow: 5px 5px 4px var(--color-secondary);
+    }
 }
