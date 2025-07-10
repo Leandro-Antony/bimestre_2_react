@@ -3,6 +3,7 @@
     --color-primary-light: #3786e3;
     --color-primary-lighter: #7bb6f7;
     --color-primary-dark: #034a91;
+    --color-blue-vibrant: #0072e4;
 
     --color-secondary: #ffb703;
     --color-secondary-light: #ffd166;
@@ -18,13 +19,17 @@
     --color-blue-darker: #001f3f;
     --color-blue-deep: #03045e;
     --color-blue-midnight: #0a192f;
+    --color-blue: #002396;
 
     --color-text: #f5f7fa;
-    --color-text-light: #adb5bd;
+    --color-text-light: #f5f5f5;
     --color-text-on-primary: #ffffff;
     --color-text-on-secondary: #181a1b;
 
     --color-contrast: #ff595e;
     --color-border: #343a40;
     --color-muted: #4a4e69;
+
+    --green: #00f59b;
+    --green-text: #002218;
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./ProductList.module.css";
 import CircularProgress from '@mui/material/CircularProgress';
+import { ShoppingCart } from 'lucide-react';
 
 export function ProductList() {
   const category = "laptops";
@@ -32,14 +33,14 @@ export function ProductList() {
 
   return (
     <div className={styles.container}>
-      <h1>TRJ NiggaStore</h1>
+      <h1 className={styles.header}>TRJ MEGASTORE</h1>
       {products.map((products) => (
         <div key={products.id} className={styles.product}>
           <img src={products.thumbnail} alt={products.title} />
-          <h2>{products.title}</h2>
-          <p>{products.description}</p>
-          <p>R$ {products.price.toFixed(2)}</p>
-          <p>Estoque: {products.stock}</p>
+          <h2 className={styles.title}>{products.title}</h2>
+          <p className={styles.description}>{products.description}</p>
+          <p className={styles.price}>R$ {products.price.toFixed(2)}</p>
+          <button className={styles.btn}>ADD TO CART <ShoppingCart /></button>
         </div>
       ))}
 
