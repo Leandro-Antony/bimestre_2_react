@@ -3,7 +3,7 @@ import styles from "./ProductList.module.css";
 import CircularProgress from '@mui/material/CircularProgress';
 import { ShoppingCart } from 'lucide-react';
 
-export function ProductList() {
+export function ProductList({ product, addToCart }) {
   const category = "laptops";
   const limit = 12;
   const apiURL = `https://dummyjson.com/products/category/${category}?limit=${limit}&select=id,thumbnail,title,price,description,stock`;
@@ -11,6 +11,10 @@ export function ProductList() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const [added, setAdded] = useState(false);
+  const [qty, setQty] = useState(0);
+
   
   useEffect(() => {
     async function fetchProducts() {
@@ -33,7 +37,6 @@ export function ProductList() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.header}>TRJ MEGASTORE</h1>
       <div className={styles.items}>
       {products.map((products) => (
         <div key={products.id} className={styles.product}>
@@ -41,7 +44,19 @@ export function ProductList() {
           <h2 className={styles.title}>{products.title}</h2>
           <p className={styles.description}>{products.description}</p>
           <p className={styles.price}>R$ {products.price.toFixed(2)}</p>
-          <button className={styles.btn}>ADD TO CART <ShoppingCart /></button>
+          {added & (
+            <div className={styles.productQty}>
+              <button>-</button>
+              <p>{qty}</p>
+              <button>+</button>
+            </div>
+          )}
+
+          <button className={styles.btn} onClick={() => {
+            addToCart(product);
+            setAdded(true);
+            setQty(qty + 1);
+          }}>ADD TO CART <ShoppingCart /></button>
         </div>
       ))}
       </div>

@@ -1,11 +1,16 @@
-import styles from './Header.module.css'
-import tomato from "../assets/tomato.png"
+import styles from "./Header.module.css";
 
-export default function Header({children}) {
-    return (
-        <div className={styles.header}>
-            <img className={styles.img} src={tomato} alt="Tomato" />
-            <h1 className={styles.phrase}>{children}</h1>
-        </div>
-    )
-    }
+export default function Header({ cart }) {
+  return (
+    <div className={styles.header}>
+      <h1 className={styles.phrase}>TRJ MEGASTORE</h1>
+
+      <div className={styles.cart}>
+        {cart.length > 0 && <p>{cart.length} Products</p>}
+        <p>
+          Total $: {cart.reduce((total, product) => total + product.price, 0).toFixed(2)}
+        </p>
+      </div>
+    </div>
+  );
+}
