@@ -34,6 +34,7 @@ export function ProductList() {
   return (
     <div className={styles.container}>
       <h1 className={styles.header}>TRJ MEGASTORE</h1>
+      <div className={styles.items}>
       {products.map((products) => (
         <div key={products.id} className={styles.product}>
           <img src={products.thumbnail} alt={products.title} />
@@ -43,6 +44,7 @@ export function ProductList() {
           <button className={styles.btn}>ADD TO CART <ShoppingCart /></button>
         </div>
       ))}
+      </div>
 
       {loading && (
         <div>

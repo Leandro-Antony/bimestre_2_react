@@ -19,6 +19,13 @@
     border-radius: 1rem 1rem;
 }
 
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
 .product {
     display: flex;
     flex-direction: column;
