@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./ProductList.module.css";
-import CircularProgress from '@mui/material/CircularProgress';
-import { ShoppingCart } from 'lucide-react';
+import CircularProgress from "@mui/material/CircularProgress";
+import Product from "./Product.jsx";
 
 export function ProductList({ product, addToCart }) {
   const category = "laptops";
@@ -12,10 +12,6 @@ export function ProductList({ product, addToCart }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const [added, setAdded] = useState(false);
-  const [qty, setQty] = useState(0);
-
-  
   useEffect(() => {
     async function fetchProducts() {
       try {
@@ -38,42 +34,25 @@ export function ProductList({ product, addToCart }) {
   return (
     <div className={styles.container}>
       <div className={styles.items}>
-      {products.map((product) => (
-        <div key={product.id} className={styles.product}>
-          <img src={product.thumbnail} alt={product.title} />
-          <h2 className={styles.title}>{product.title}</h2>
-          <p className={styles.description}>{product.description}</p>
-          <p className={styles.price}>R$ {product.price.toFixed(2)}</p>
-          {added && (
-            <div className={styles.productQty}>
-              <button>-</button>
-              <p>{qty}</p>
-              <button>+</button>
-            </div>
-          )}
-
-          <button className={styles.btn} onClick={() => {
-            addToCart(product);
-            setAdded(true);
-            setQty(qty + 1);
-          }}>ADD TO CART <ShoppingCart /></button>
-        </div>
-      ))}
+        {products.map((product) => (
+          <Product key={product.id} product={product} addToCart={addToCart} />
+        ))}
       </div>
 
       {loading && (
         <div>
-            <CircularProgress
+          <CircularProgress
             size="10rem"
             thickness={5}
             style={{ margin: "2rem auto", display: "block" }}
             sx={{
-                color: "#001111",
-            }}/>
-            <p>Loading products...</p>
+              color: "#001111",
+            }}
+          />
+          <p>Loading products...</p>
         </div>
-      )
-      }
+      )}
+      {error && <p>Error loading products: {error.message}</p>}
     </div>
   );
 }
