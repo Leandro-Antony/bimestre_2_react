@@ -38,13 +38,13 @@ export function ProductList({ product, addToCart }) {
   return (
     <div className={styles.container}>
       <div className={styles.items}>
-      {products.map((products) => (
-        <div key={products.id} className={styles.product}>
-          <img src={products.thumbnail} alt={products.title} />
-          <h2 className={styles.title}>{products.title}</h2>
-          <p className={styles.description}>{products.description}</p>
-          <p className={styles.price}>R$ {products.price.toFixed(2)}</p>
-          {added & (
+      {products.map((product) => (
+        <div key={product.id} className={styles.product}>
+          <img src={product.thumbnail} alt={product.title} />
+          <h2 className={styles.title}>{product.title}</h2>
+          <p className={styles.description}>{product.description}</p>
+          <p className={styles.price}>R$ {product.price.toFixed(2)}</p>
+          {added && (
             <div className={styles.productQty}>
               <button>-</button>
               <p>{qty}</p>
