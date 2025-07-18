@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+
 li {
     list-style: none;
 }
@@ -11,7 +14,21 @@ h2 {
 
 .container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+.track h3 {
+    display: flex;
+    align-items: center;       
+    justify-content: center;   
+    gap: 0.5rem;               
+  }
+  
+  .track h3 svg {
+    vertical-align: middle;
+  }
+  
 
 .cart {
     display: flex;
@@ -22,6 +39,10 @@ h2 {
     border: 2px solid white;
 }
 
+.empty {
+    font-size: 6rem;
+    text-align: center;
+}
 
 .product {
     display: flex;
@@ -33,10 +54,15 @@ h2 {
     margin: 0.5rem;
     width: 90rem;
     transition: .4s ease-in-out .1s;
+
     &:hover {
         background-color: var(--color-blue-vibrant);
         box-shadow: 5px 5px 4px var(--color-primary-dark);
     }
+}
+
+.image {
+    height: 20rem;
 }
 
 .title {
