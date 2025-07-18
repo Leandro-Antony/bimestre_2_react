@@ -1,5 +1,6 @@
 import styles from "./Product.module.css";
 import { useState } from "react";
+import { ShoppingCart } from "lucide-react";
 
 export default function Product({ product, addToCart }) {
   const [added, setAdded] = useState(false);
@@ -31,7 +32,7 @@ export default function Product({ product, addToCart }) {
           setQty(qty + 1);
         }}
       >
-        ADD TO CART
+        ADD TO CART <ShoppingCart></ShoppingCart>
       </button>
     </div>
   );
