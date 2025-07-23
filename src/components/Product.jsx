@@ -2,9 +2,26 @@ import styles from "./Product.module.css";
 import { useState } from "react";
 import { ShoppingCart } from "lucide-react";
 
-export default function Product({ product, addToCart }) {
+export default function Product({ product, addToCart, removeFromCart }) {
   const [added, setAdded] = useState(false);
   const [qty, setQty] = useState(0);
+
+  const handleAdd = () => {
+    addToCart(product);
+    setAdded(true);
+    setQty(qty + 1);
+  };
+
+  const handleRemove = () => {
+    if (qty > 1) {
+      removeFromCart(product);
+      setQty(qty - 1);
+    } else if (qty === 1) {
+      removeFromCart(product);
+      setQty(0);
+      setAdded(false);
+    }
+  };
 
   return (
     <div className={styles.product}>
@@ -18,22 +35,19 @@ export default function Product({ product, addToCart }) {
         <p className={styles.productPrice}>${product.price}</p>
         {added && (
           <div className={styles.productQty}>
-            <button>-</button>
+            <button onClick={handleRemove}>-</button>
             <p>{qty}</p>
-            <button>+</button>
+            <button onClick={handleAdd}>+</button>
           </div>
         )}
       </div>
       <button
         className={styles.btn}
-        onClick={() => {
-          addToCart(product);
-          setAdded(true);
-          setQty(qty + 1);
-        }}
+        onClick={handleAdd}
       >
-        ADD TO CART <ShoppingCart></ShoppingCart>
+        ADD TO CART <ShoppingCart />
       </button>
     </div>
   );
 }
+

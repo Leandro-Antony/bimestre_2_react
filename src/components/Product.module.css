@@ -57,3 +57,23 @@
         color: var(--green-text);
     }
 }
+
+.productQty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+}
+
+.productQty button {
+    background-color: transparent;
+    border: none;
+    background-color: var(--color-blue);
+    padding: .5rem;
+    margin: .5rem 0;
+    border-radius: 5px 5px;
+    color: var(--color-text-light);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
